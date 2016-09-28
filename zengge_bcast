@@ -1,0 +1,6 @@
+signature protosig_zengge_bcast {
+  ip-proto == udp
+  dst-port == 48899
+  payload /HF-A11ASSISTHREAD/
+  eval ProtoSig::match
+}
