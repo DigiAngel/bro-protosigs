@@ -1,0 +1,7 @@
+signature protosig_ssdp_mcast {
+  ip-proto == udp
+  dst-ip == 239.255.255.250
+  dst-port == 1900
+  payload /M-SEARCH/
+  eval ProtoSig::match
+}
