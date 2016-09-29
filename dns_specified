@@ -20,7 +20,7 @@ signature protosig_dns_yahoo {
   eval ProtoSig::match
 }
 
-signature protosig_dns_facebook {
+signature protosig_dns_instagram {
   ip-proto == udp
   dst-port == 53
   payload /.*facebook/
