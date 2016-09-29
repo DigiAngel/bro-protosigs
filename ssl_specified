@@ -1,0 +1,24 @@
+#matches on ssl tunnel setup
+signature protosig_ssl {
+  ip-proto == tcp
+  dst-port == 443
+  tcp-state established
+  payload /^\x16/
+  eval ProtoSig::match
+}
+
+signature protosig_ssl_facebook {
+  ip-proto == tcp
+  dst-port == 443
+  tcp-state established
+  payload /^\x16.*facebook/
+  eval ProtoSig::match
+}
+
+signature protosig_ssl_google {
+  ip-proto == tcp
+  dst-port == 443
+  tcp-state established
+  payload /^\x16.*google/
+  eval ProtoSig::match
+}
