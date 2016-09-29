@@ -1,0 +1,35 @@
+#match generic first then more granular as you go down
+signature protosig_dns {
+  ip-proto == udp
+  dst-port == 53
+  payload /.*\x01\x00/
+  eval ProtoSig::match
+}
+
+signature protosig_dns_google {
+  ip-proto == udp
+  dst-port == 53
+  payload /.*google/
+  eval ProtoSig::match
+}
+
+signature protosig_dns_yahoo {
+  ip-proto == udp
+  dst-port == 53
+  payload /.*yahoo/
+  eval ProtoSig::match
+}
+
+signature protosig_dns_facebook {
+  ip-proto == udp
+  dst-port == 53
+  payload /.*facebook/
+  eval ProtoSig::match
+}
+
+signature protosig_dns_facebook {
+  ip-proto == udp
+  dst-port == 53
+  payload /.*instagram/
+  eval ProtoSig::match
+}
