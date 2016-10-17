@@ -1,0 +1,16 @@
+signature protosig_clash_tcp {
+  ip-proto == tcp
+  dst-port == 9339
+  tcp-state established
+  payload /\x27\x74\x00\x00\x48\x00\x00\x00\x00\x00\x01\x00\x00\x00/
+  payload-size == 79
+  eval ProtoSig::match
+}
+
+signature protosig_clash_udp {
+  ip-proto == udp
+  dst-port == 9339
+  payload /.*\x00\x00\x00\x00\x00\x00/
+  payload-size == 1400
+  eval ProtoSig::match
+}
