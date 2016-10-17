@@ -1,0 +1,7 @@
+#will match on some steam sessions, noisy if all
+signature protosig_steam {
+  ip-proto == udp
+  payload /\x56\x53\x30\x31/
+  payload-size <= 1000
+  eval ProtoSig::match
+}
