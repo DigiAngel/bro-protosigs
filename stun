@@ -1,0 +1,15 @@
+signature protosig_classic_stun {
+  ip-proto == udp
+  src-port == 50001
+  payload /\x01\x03\x00\x1c/
+  payload-size == 48
+  eval ProtoSig::match
+}
+
+signature protosig_stun {
+  ip-proto == udp
+  src-port == 3478
+  payload /\x01\x03\x00\x1c/
+  payload-size == 48
+  eval ProtoSig::match
+}
