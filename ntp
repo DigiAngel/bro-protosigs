@@ -1,0 +1,7 @@
+signature protosig_ntp {
+  ip-proto == udp
+  dst-port == 123
+  payload /.*\00/
+  payload-size == 48
+  eval ProtoSig::match
+}
