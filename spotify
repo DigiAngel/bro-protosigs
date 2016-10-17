@@ -1,0 +1,7 @@
+signature protosig_spotify {
+  ip-proto == tcp
+  dst-port == 4070
+  tcp-state established
+  payload /.*\x52\x0f\x50\x02\xa0\x01\x00\xf0\x01\x06\xc0/
+  eval ProtoSig::match
+}
