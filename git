@@ -1,0 +1,8 @@
+#matches on git- commands
+signature protosig_git {
+  ip-proto == tcp
+  dst-port == 9418
+  tcp-state established
+  payload /.*git-/
+  eval ProtoSig::match
+}
