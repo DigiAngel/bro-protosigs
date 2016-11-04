@@ -1,0 +1,7 @@
+#adjust payload "\x08" for vlanid
+signature protosig_vxlan {
+  ip-proto == udp
+  dst-port == 4789
+  payload /\x08\x00/
+  eval ProtoSig::match
+}
