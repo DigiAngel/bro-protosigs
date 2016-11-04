@@ -1,0 +1,8 @@
+signature protosig_rtp_apple {
+  dst-ip == 17.0.0.0/8
+  ip-proto == udp
+  dst-port <= 16472
+  payload /\x00/
+  payload-size == 16
+  eval ProtoSig::match
+}
