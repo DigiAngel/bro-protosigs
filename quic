@@ -1,0 +1,6 @@
+signature protosig_ssl_quic {
+  ip-proto == udp
+  dst-port ==443
+  payload /.*\x51\x30\x33/
+  eval ProtoSig::match
+}
