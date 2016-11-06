@@ -4,3 +4,11 @@ signature protosig_steam {
   payload /\x56\x53\x30\x31/
   eval ProtoSig::match
 }
+
+#keepalives
+signature protosig_steam_ka {
+  ip-proto == udp
+  dst-port == 27015,27016,27017,27018,27019,27020,27021,27022,27023,27024,27025,27026,27027,27028,27029,27030
+  payload-size < 16 
+  eval ProtoSig::match
+}
