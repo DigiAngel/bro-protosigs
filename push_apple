@@ -1,0 +1,9 @@
+#ssl matches first psh-ack 
+signature protosig_push_apple {
+  dst-ip == 17.0.0.0/8
+  ip-proto == tcp
+  tcp-state established
+  dst-port == 5223
+  payload /\x16/
+  eval ProtoSig::match
+}
