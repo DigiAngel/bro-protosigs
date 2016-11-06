@@ -1,0 +1,7 @@
+signature protosig_talk_google {
+  ip-proto == tcp
+  tcp-state established
+  dst-port == 5228
+  payload /\x16/
+  eval ProtoSig::match
+}
