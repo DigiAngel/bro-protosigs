@@ -1,6 +1,13 @@
-signature protosig_ssl_quic {
+signature protosig_ssl_udpquic {
   ip-proto == udp
   dst-port ==443
   payload /.*\x51\x30\x33/
+  eval ProtoSig::match
+}
+
+signature protosig_ssl_tcpquic {
+  ip-proto == tcp
+  dst-port ==443
+  payload /\x31\x51\x54\x56/
   eval ProtoSig::match
 }
